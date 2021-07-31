@@ -1,4 +1,7 @@
 # Shared_Wallet
-A solidity project which implement a shared wallet
+A solidity project which implement a shared wallet.
 
-An allowance transaction wallet which will facilitate the transaction of pocket money, travel allowances and any other sort of controlled wallet transactions on the Ethereum network.
+The applications could be:
+1. Automatically depositing pocket money at customized intervals into a shared wallet between parents and their child
+2. Giving out allowances for various purposes like business trips
+3. Any other application where a controlled amount of currency is shared with users, by an admin
