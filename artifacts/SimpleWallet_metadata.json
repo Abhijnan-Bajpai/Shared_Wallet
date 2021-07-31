@@ -56,11 +56,11 @@
 	},
 	"sources": {
 		"SimpleWallet.sol": {
-			"keccak256": "0x371138f8c265c7866ba51103c8dbfbea3e8cab86b4dafe2642e5fb20108a70eb",
+			"keccak256": "0x48c29c1e9481138328d19e3de9b61c4511c94a48443a789c3be21708fc3b89d4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://13c92e141b64d8101d6a2230491719e9c09c4126ba417e2c78279c36f3630409",
-				"dweb:/ipfs/QmWrnM9PktFe9dCAgZ2HAwHotrG9FsYQfpbeS4jRfwdgZ6"
+				"bzz-raw://29213755cc20d42435a0e586d5c6c788040bc5761fddd9a0530d4055d58dae23",
+				"dweb:/ipfs/QmXapSfKTuPiP4fG5SEH8UsPzB1HbfEEzpCZPq3TC3DuQB"
 			]
 		}
 	},
