@@ -9,6 +9,8 @@ contract SimpleWallet is Ownable {
     
     // address owner;
     
+    mapping(address => uint) public allowance;
+    
     
     // A modifier which ensures the security of certain transactions by limiting their access to the owner
     // Not required after import of Ownable.sol
@@ -17,7 +19,31 @@ contract SimpleWallet is Ownable {
     //     _;
     // }
     
-    function withdrawMoney(address payable _to, uint _amount) public onlyOwner {
+    // Setting specific allowance for each non-owner user
+    function addAllowance(address _who, uint _amount) public onlyOwner {
+        allowance[_who] = _amount;
+    }
+    
+    function isOwner() internal view returns(bool) {
+        return owner() == msg.sender;
+    }
+    
+    modifier onlyOwnerOrAllowed(uint _amount) {
+        require(isOwner() || allowance[msg.sender] >= _amount, "You are not allowed");
+        _;
+    }
+    
+    // Need to ensure that when owner is reducing allowance, it doesn't go below zero
+    function reduceAllowance(address _who, uint _amount) internal onlyOwnerOrAllowed(_amount) {
+        allowance[_who] -= _amount;
+    }
+    
+    function withdrawMoney(address payable _to, uint _amount) public onlyOwnerOrAllowed(_amount) {
+        require(_amount <= address(this).balance, "There are not enough funds in the contract");
+        if(!isOwner())
+        {
+            reduceAllowance(msg.sender, _amount);
+        }
         _to.transfer(_amount);
     }
     
