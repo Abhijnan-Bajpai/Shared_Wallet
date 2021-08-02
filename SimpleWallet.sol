@@ -10,6 +10,8 @@ contract Allowance is Ownable {
     
     mapping(address => uint) public allowance;
     
+    // Event for declaring a change in the allowance values
+    event AllowanceChanged(address indexed _who, address indexed _byWhom, uint _oldAmount, uint _newAmount);
     
     // A modifier which ensures the security of certain transactions by limiting their access to the owner
     // Not required after import of Ownable.sol
@@ -19,7 +21,8 @@ contract Allowance is Ownable {
     // }
     
     // Setting specific allowance for each non-owner user
-    function addAllowance(address _who, uint _amount) public onlyOwner {
+    function setAllowance(address _who, uint _amount) public onlyOwner {
+        emit AllowanceChanged(_who, msg.sender, allowance[_who], _amount);
         allowance[_who] = _amount;
     }
     
@@ -34,11 +37,15 @@ contract Allowance is Ownable {
     
     // Need to ensure that when owner is reducing allowance, it doesn't go below zero
     function reduceAllowance(address _who, uint _amount) internal onlyOwnerOrAllowed(_amount) {
+        emit AllowanceChanged(_who, msg.sender, allowance[_who], allowance[_who] - _amount);
         allowance[_who] -= _amount;
     }
 }
 
 contract SimpleWallet is Allowance {
+    
+    event MoneySent(address indexed _beneficiary, uint _amount);
+    event MoneyReceived(address indexed _from, uint _amount);
     
     function withdrawMoney(address payable _to, uint _amount) public onlyOwnerOrAllowed(_amount) {
         require(_amount <= address(this).balance, "There are not enough funds in the contract");
@@ -46,11 +53,12 @@ contract SimpleWallet is Allowance {
         {
             reduceAllowance(msg.sender, _amount);
         }
+        emit MoneySent(_to, _amount);
         _to.transfer(_amount);
     }
     
     receive() external payable {
-        
+        emit MoneyReceived(msg.sender, msg.value);
     }
     
 }

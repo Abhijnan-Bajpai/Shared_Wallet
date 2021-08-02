@@ -11,6 +11,75 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_byWhom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_oldAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_newAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "AllowanceChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "MoneyReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_beneficiary",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "MoneySent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
 					},
@@ -23,24 +92,6 @@
 				],
 				"name": "OwnershipTransferred",
 				"type": "event"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_who",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "addAllowance",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			},
 			{
 				"inputs": [
@@ -77,6 +128,24 @@
 			{
 				"inputs": [],
 				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "setAllowance",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -155,11 +224,11 @@
 	},
 	"sources": {
 		"SimpleWallet.sol": {
-			"keccak256": "0xf31a7d31d86b65893d1829126f95ce1e71292cb9da02e0bb05a207971dc65100",
+			"keccak256": "0xfd492dc1bf54ecf9784d27dc7a53ab7834601e5aaa4f95b3ffeaad551531d2ef",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://024e93cf49379a1a806085e523d4c469a0266ad6090fe220d96e41110b0d5cb3",
-				"dweb:/ipfs/QmXQ1tFXkRR9U27chUimjm8wK3tssveHpmgEBWqYmnu6YM"
+				"bzz-raw://74ad1681ef1a82505bff20aad0c9d8e384c5c0d17652bea525e8ede412ecd55a",
+				"dweb:/ipfs/QmP7RT8amorxqK2xLQaKJHFdaiVYsyhFvGdLsxEA18CDiP"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {
