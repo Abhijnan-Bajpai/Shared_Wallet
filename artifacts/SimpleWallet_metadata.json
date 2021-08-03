@@ -129,7 +129,7 @@
 				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -223,12 +223,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"SimpleWallet.sol": {
-			"keccak256": "0xfd492dc1bf54ecf9784d27dc7a53ab7834601e5aaa4f95b3ffeaad551531d2ef",
+		"Allowance.sol": {
+			"keccak256": "0xc08e2ddf64e7f3d224e0763751b0e16f8a254d60e9426e4fb087c404585593d1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://74ad1681ef1a82505bff20aad0c9d8e384c5c0d17652bea525e8ede412ecd55a",
-				"dweb:/ipfs/QmP7RT8amorxqK2xLQaKJHFdaiVYsyhFvGdLsxEA18CDiP"
+				"bzz-raw://ee68aee2e97fa3c9e16ce67d87ab4e579c89e650ea028a5c5a44d099e80db226",
+				"dweb:/ipfs/QmRTPxoBnrpKwR8HHCV2E1t1pptHUzf7wXA8g4Dx3yTJu9"
+			]
+		},
+		"SimpleWallet.sol": {
+			"keccak256": "0x2731e958d9ab20d1538a8c2fbc906a56edf01b7fca738b335434bd0fafe9a36b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6dff5fc883e1ace561a0200eff25b78344b9d03fae30e5a3475590ae38c81eea",
+				"dweb:/ipfs/QmcrrcLAB2CMepCw6G2kQ9TQwzyyDv1GPs2vHrJrB4xzSN"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {
